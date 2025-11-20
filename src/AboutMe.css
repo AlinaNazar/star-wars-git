@@ -1,0 +1,39 @@
+/* Карточка персонажа в стиле Star Wars */
+.character-card {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 2px solid var(--color-main);
+}
+
+/* Имя персонажа */
+.character-name {
+    font-size: 2rem;
+    letter-spacing: 0.12em;
+    color: var(--color-main);
+}
+
+/* Картинка блока */
+.character-image-wrapper {
+    padding: 1rem;
+}
+
+/* Картинка персонажа */
+.character-image {
+    border: 2px solid var(--color-main);
+    border-radius: 1.2rem;
+    object-fit: cover;
+    width: 100%;
+    max-height: 330px;
+}
+
+/* Таблица характеристик */
+.character-info dt {
+    color: var(--color-main);
+}
+
+.character-info dd {
+    margin-bottom: 0.4rem;
+    color: #f8f9fa;
+}
+
