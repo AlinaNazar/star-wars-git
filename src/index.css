@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
+
+:root {
+  --color-main: #eedb00;
+  --bg-color-grey: rgba(60, 69, 67, 0.6);
+}
+
+body {
+  font-family: 'Poller One', sans-serif;
+  background-image: url("./assets/sky.jpg");
+  color: var(--color-main);
+  background-attachment: fixed;
+}
