@@ -23,7 +23,7 @@ const AboutMe = () => {
                 //setHeroImg(data.image);
                 setHero(card);
             })
-            .catch(() => setHero('Error'))
+            .catch(() => setHero(false))
     }, []);
 
     if (!hero) return <div className='far-galaxy'> Loading...</div>;
