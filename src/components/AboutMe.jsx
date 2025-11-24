@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
-import {baseURL} from "../utils/constants.js";
+import {baseURL, EXPIDATE} from "../utils/constants.js";
 import heroImg from "../assets/main.jpg";
-import '../AboutMe.css'
+import '../css/AboutMe.css'
 
 const AboutMe = () => {
     const [hero, setHero] = useState(null);
     //const [heroImg, setHeroImg] = useState();
     useEffect(() => {
         const hero = JSON.parse(localStorage.getItem("hero"));
-        if(hero && (Date.now() - hero.expiryDate) < (30 * 24 * 60 *60 * 1000)){
+        if(hero && (Date.now() - hero.expiryDate) < EXPIDATE){
             setHero(hero.info);
         } else {
             fetch(`${baseURL}/v1/peoples/1`)

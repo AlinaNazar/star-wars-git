@@ -1,0 +1,122 @@
+/* Общий фон формы — в стиле карточки персонажа */
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px solid var(--color-main);
+    box-shadow:
+            0 0 20px rgba(0, 0, 0, 0.9),
+            0 0 25px rgba(255, 255, 0, 0.18);
+    color: #f8f9fa;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Заголовок формы, если добавишь <h2> внутри */
+.container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-main);
+}
+
+/* Лейблы — как подписи к характеристикам */
+label {
+    display: block;
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-main);
+}
+
+/* Поля ввода, select и textarea — тёмные, с неоновыми рамками */
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    margin-top: 4px;
+    margin-bottom: 1rem;
+    background-color: rgba(10, 10, 10, 0.95);
+    color: #f8f9fa;
+    outline: none;
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background-color 0.2s ease,
+            transform 0.1s ease;
+    font-size: 0.95rem;
+}
+
+/* Placeholder — чуть приглушённый */
+input[type=text]::placeholder,
+textarea::placeholder {
+    color: rgba(248, 249, 250, 0.5);
+}
+
+/* Фокус по полю — подсветка в стиле var(--color-main) */
+input[type=text]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--color-main);
+    box-shadow:
+            0 0 0 1px rgba(0, 0, 0, 0.9),
+            0 0 12px rgba(255, 255, 0, 0.5);
+    background-color: rgba(5, 5, 5, 0.98);
+    transform: translateY(-1px);
+}
+
+/* Только textarea: разрешаем вертикальный ресайз */
+textarea {
+    resize: vertical;
+    min-height: 160px;
+}
+
+/* Кнопка отправки — "кнопка консоли" */
+input[type=submit] {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--color-main);
+    padding: 0.8rem 1.6rem;
+    border-radius: 999px;
+    border: 2px solid var(--color-main);
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            box-shadow 0.2s ease,
+            transform 0.1s ease;
+}
+
+/* Hover по кнопке — как активная кнопка панели */
+input[type=submit]:hover {
+    background-color: var(--color-main);
+    color: #000;
+    box-shadow: 0 0 16px rgba(255, 255, 0, 0.7);
+    transform: translateY(-1px);
+}
+
+/* Active — лёгкое нажатие */
+input[type=submit]:active {
+    transform: translateY(1px) scale(0.99);
+    box-shadow: 0 0 8px rgba(255, 255, 0, 0.5);
+}
+
+/* Дополнительно: выравнивание формы внутри контейнера */
+.container form {
+    display: flex;
+    flex-direction: column;
+}

@@ -9,6 +9,7 @@ import friend8 from '../assets/friend8.jpg';
 import friend9 from '../assets/friend9.jpg';
 
 export const baseURL = `https://sw-info-api.herokuapp.com`;
+export const EXPIDATE = 30 * 24 * 60 * 60 * 1000;
 
 export const friends = [friend1, friend2, friend3, friend4, friend5, friend6, friend7, friend8, friend9];
 export const navItems = ['Home', 'About me', 'Star wars', 'Contact'];
