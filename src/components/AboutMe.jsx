@@ -7,22 +7,32 @@ const AboutMe = () => {
     const [hero, setHero] = useState(null);
     //const [heroImg, setHeroImg] = useState();
     useEffect(() => {
-        fetch(`${baseURL}/v1/peoples/1`)
-            .then((res) => res.json())
-            .then((data) => {
-                const card = {
-                    'name': data.name,
-                    'gender': data.gender,
-                    'skin color': data.skin_color,
-                    'hair color': data.hair_color,
-                    'height': data.height,
-                    'eye color': data.eye_color,
-                    'weight': data.mass,
-                    'birth year': data.birth_year,
-                };
-                //setHeroImg(data.image);
-                setHero(card);
-            })
+        const hero = JSON.parse(localStorage.getItem("hero"));
+        if(hero && (Date.now() - hero.expiryDate) < (30 * 24 * 60 *60 * 1000)){
+            setHero(hero.info);
+        } else {
+            fetch(`${baseURL}/v1/peoples/1`)
+                .then((res) => res.json())
+                .then((data) => {
+                    let card = {
+                        'name': data.name,
+                        'gender': data.gender,
+                        'skin color': data.skin_color,
+                        'hair color': data.hair_color,
+                        'height': data.height,
+                        'eye color': data.eye_color,
+                        'weight': data.mass,
+                        'birth year': data.birth_year,
+                    };
+                    //setHeroImg(data.image);
+                    setHero(card);
+                    card = {
+                        info: card,
+                        expiryDate: Date.now()
+                    }
+                    localStorage.setItem("hero", JSON.stringify(card));
+                })
+        }
     }, []);
 
     if (!hero) return <div className='far-galaxy'> Loading...</div>;
