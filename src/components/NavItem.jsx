@@ -2,7 +2,7 @@ import {useContext} from "react";
 import {StarWarsContext} from "../utils/context.js";
 
 const NavItem = ({itemTitle}) => {
-    const setPage = useContext(StarWarsContext);
+    const {setPage} = useContext(StarWarsContext);
     return (
         <li
             onClick={() => setPage(itemTitle)}
