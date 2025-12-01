@@ -9,8 +9,8 @@ import {StarWarsContext} from "./utils/context.js";
 function App() {
     const [page, setPage] = useState(navItems[0]);
     return (
-        <div className="container-fluid">
-            <StarWarsContext value={{page, setPage}}>
+        <div className="mx-2">
+            <StarWarsContext value={{page, changePage: setPage}}>
                 <Header />
                 <Main />
                 <Footer />

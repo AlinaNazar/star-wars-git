@@ -7,19 +7,13 @@ import {useContext} from "react";
 import {StarWarsContext} from "../utils/context.js";
 
 const Main = () => {
-const {page} = useContext(StarWarsContext);
+    const {page} = useContext(StarWarsContext);
     switch (page) {
-        case
-        navItems[1]
-        :
+        case navItems[1]:
             return <AboutMe/>;
-        case
-        navItems[2]
-        :
+        case navItems[2]:
             return <StarWars/>;
-        case
-        navItems[3]
-        :
+        case navItems[3]:
             return <Contact/>;
         default:
             return <Home/>;
