@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from "react";
 import {baseURL, EXPIDATE} from "../utils/constants.js";
 import heroImg from "../assets/main.jpg";
-import '../css/AboutMe.css'
 
 const AboutMe = () => {
     const [hero, setHero] = useState(null);
     //const [heroImg, setHeroImg] = useState();
     useEffect(() => {
         const hero = JSON.parse(localStorage.getItem("hero"));
-        if(hero && (Date.now() - hero.expiryDate) < EXPIDATE){
+        if (hero && (Date.now() - hero.expiryDate) < EXPIDATE) {
             setHero(hero.info);
         } else {
             fetch(`${baseURL}/v1/peoples/1`)
@@ -41,32 +40,30 @@ const AboutMe = () => {
     return (
 
         <>
-            {(!!hero)&&
-            <div className='container card text-warning border-warning character-card '>
-                <div className='row g-0'>
-                    <div className='col-md-4 position-relative character-image-wrapper'>
-                        <img src={heroImg} alt={hero.name}
-                             className='img-fluid rounded character-image'/>
-                    </div>
-
-                    <div className='col-md-8 card-body'>
-                        <h2 className='card-title text-center mb-4 character-name'>
+            {(!!hero) &&
+                <div className='container mx-auto max-w-4xl bg-black border-2 border-main rounded-3xl overflow-hidden
+  shadow-[0_0_25px_rgba(56,189,248,0.8)]'>
+                    <div className='grid grid-cols-3 gap-6 p-6'>
+                        <h2 className='col-span-3  text-center mb-4 text-[2rem] tracking-[0.12em]'>
                             {hero.name}
                         </h2>
-                        <dl className='row mb-0 character-info'>
+                        <div className='col-span-1'>
+                            <img src={heroImg} alt={hero.name}
+                                 className='w-full border-2 border-main rounded-2xl object-cover max-h-[330px]'/>
+                        </div>
+                        <dl className='col-span-2 grid grid-cols-2 gap-x-4 gap-y-2'>
                             {Object.entries(hero).map(([key, value]) =>
                                 key === 'name' ? null :
                                     <React.Fragment key={key}>
-                                        <dt className='col-sm-4 text-uppercase small fw-bold'>{key}</dt>
-                                        <dd className='col-sm-8 mb-2'>{value}</dd>
+                                        <dt className='col-span-1 text-main uppercase text-sm font-bold'>{key}</dt>
+                                        <dd className='col-span-1 text-dataColor  mb-1'>{value}</dd>
                                     </React.Fragment>
                             )}
                         </dl>
                     </div>
                 </div>
-            </div>
             }
-</>
+        </>
     );
 };
 

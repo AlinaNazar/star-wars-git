@@ -1,10 +1,11 @@
 import {starWarsInfo} from "../utils/constants.js";
+import Text from "./ui/Text.jsx";
 
 const StarWars = () => {
     return (
-        <div className={'far-galaxy'}>
+        <Text>
             {starWarsInfo}
-        </div>
+        </Text>
     )
 }
 

@@ -2,7 +2,7 @@ const Button = ({children, callback, className}) => {
     return (
         <div
             onClick={callback ?? (() => {})}
-            className={`bg-red border-1 px-3  rounded-md cursor-pointer hover:bg-red-700 hover:text-white hover: border-main ${className ?? ''}`}
+            className={`bg-red border-1 px-3 py-2 rounded-md cursor-pointer hover:bg-red-700 hover:text-white hover: border-main ${className ?? ''}`}
                 >{children}
         </div>
     )

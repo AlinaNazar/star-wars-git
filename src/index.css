@@ -7,6 +7,8 @@
   --color-main: #eedb00;
   --color-grey: rgba(60, 69, 67, 0.6);
   --color-red: rgba(204, 3, 35, 0.5);
+  --background-color-black:rgba(0, 0, 0, 0.8);
+  --color-dataColor: #f8f9fa;
   --shadow-hero: 0.6rem 0.6rem 0.6rem oklch(28.2% 0.01 258.338);
 }
 
@@ -14,5 +16,18 @@
   body {
     @apply font-poller bg-sky text-main bg-fixed;
   }
+}
+
+.form-label {
+  @apply block mt-3 mb-1 text-[0.9rem] tracking-[0.08rem] uppercase text-main;
+}
+
+.form-field {
+  @apply w-full mt-1 mb-4 p-3 rounded-xl border border-white/20 bg-black/95 text-[var(--color-dataColor)]
+  text-[0.95rem] outline-none
+}
+
+.form-textarea {
+  @apply resize-y min-h-[160px]
 }
 

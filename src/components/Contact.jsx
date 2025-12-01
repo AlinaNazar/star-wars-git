@@ -1,6 +1,6 @@
-import '../css/contact.css'
 import {useEffect, useState} from "react";
 import {baseURL, EXPIDATE} from "../utils/constants.js";
+import Button from "./ui/Button.jsx";
 
 const Contact = () => {
     const [planets, setPlanets] = useState([]);
@@ -35,26 +35,27 @@ const Contact = () => {
     }, []);
 
     return (
-        <div className="contact-container">
+        <div className="max-w-[600px] mx-auto my-8 p-8 rounded-3xl bg-black border-main border-2
+        shadow-[0_0_20px_rgba(0,0,0,0.9),_0_0_25px_rgba(255,255,0,0.18)] text-gray-100 box-border">
             <form onSubmit={handleSubmit}>
 
-                <label htmlFor="fname">First Name</label>
-                <input type="text" id="fname" name="firstname" placeholder="Your name.."/>
+                <label className={'form-label'} htmlFor="fname">First Name</label>
+                <input className={'form-field'} type="text" id="fname" name="firstname" placeholder="Your name.."/>
 
-                <label htmlFor="lname">Last Name</label>
-                <input type="text" id="lname" name="lastname" placeholder="Your last name.."/>
+                <label className={'form-label'} htmlFor="lname">Last Name</label>
+                <input className={'form-field'} type="text" id="lname" name="lastname" placeholder="Your last name.."/>
 
-                <label htmlFor="planet">Planet</label>
-                <select id="planet" name="planet">
+                <label className={'form-label'} htmlFor="planet">Planet</label>
+                <select className={'form-field'} id="planet" name="planet">
                     {planets.map(name => (
                         <option key={name} value={name}>{name}</option>
                     ))}
                 </select>
 
-                <label htmlFor="subject">Subject</label>
-                <textarea id="subject" name="subject" placeholder="Write something.." style={{height: "200px"}}></textarea>
+                <label  className={'form-label'} htmlFor="subject">Subject</label>
+                <textarea className={'form-field'} id="subject" name="subject" placeholder="Write something.." style={{height: "200px"}}></textarea>
 
-                <input type="submit" value="Submit"/>
+                <Button className={'mt-2 text-center text-main'} type="submit" onClick={handleSubmit}>Submit</Button>
 
             </form>
         </div>
